@@ -1,0 +1,5 @@
+Revision history for Perl extension D64::Disk::Layout::Dir.
+
+0.01  2013-03-02
+    - initial version (provides miscellaneous procedures to access and modify
+      entire directories of D64/D71/D81 disk images)
