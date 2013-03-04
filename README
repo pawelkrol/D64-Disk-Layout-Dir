@@ -1,11 +1,10 @@
-D64::Disk::Layout::Dir Version 0.01
+D64::Disk::Layout::Dir Version 0.02
 ===================================
 
-D64::Disk::Layout::Dir provides a helper class for D64::Disk::Layout module,
-enabling users to access and manipulate entire directories of D64/D71/D81 disk
-images in an object oriented way without the hassle of worrying about the
-meaning of individual bits and bytes describing each sector data on a disk
-directory track.
+D64::Disk::Layout::Dir provides a helper class for D64::Disk module, enabling
+users to access and manipulate entire directories of D64/D71/D81 disk images
+in an object oriented way without the hassle of worrying about the meaning of
+individual bits and bytes describing each sector data on a disk directory track.
 
 INSTALLATION
 

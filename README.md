@@ -1,12 +1,12 @@
 D64-Disk-Layout-Dir
 ===================
 
-`D64::Disk::Layout::Dir` provides a helper class for `D64::Disk::Layout` module, enabling users to access and manipulate entire directories of D64/D71/D81 disk images in an object oriented way without the hassle of worrying about the meaning of individual bits and bytes describing each sector data on a disk directory track. Handling entire Commodore (D64/D71/D81) disk image directories has been implemented in pure Perl.
+`D64::Disk::Layout::Dir` provides a helper class for `D64::Disk` module, enabling users to access and manipulate entire directories of D64/D71/D81 disk images in an object oriented way without the hassle of worrying about the meaning of individual bits and bytes describing each sector data on a disk directory track. Handling entire Commodore (D64/D71/D81) disk image directories has been implemented in pure Perl.
 
 VERSION
 -------
 
-Version 0.01 (2013-03-02)
+Version 0.02 (2013-03-24)
 
 INSTALLATION
 ------------

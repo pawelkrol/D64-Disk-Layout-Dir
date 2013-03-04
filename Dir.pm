@@ -81,7 +81,7 @@ use strict;
 use utf8;
 use warnings;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use D64::Disk::Dir::Item qw(:types);
 use D64::Disk::Layout::Sector;
@@ -1349,7 +1349,7 @@ Pawel Krol, E<lt>pawelkrol@cpan.orgE<gt>.
 
 =head1 VERSION
 
-Version 0.01 (2013-03-02)
+Version 0.02 (2013-03-24)
 
 =head1 COPYRIGHT AND LICENSE
 
