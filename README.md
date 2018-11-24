@@ -6,7 +6,7 @@ D64-Disk-Layout-Dir
 VERSION
 -------
 
-Version 0.02 (2013-03-24)
+Version 0.03 (2018-11-24)
 
 INSTALLATION
 ------------
@@ -26,7 +26,7 @@ A comprehensive module documentation is available on [CPAN](http://search.cpan.o
 COPYRIGHT AND LICENCE
 ---------------------
 
-Copyright (C) 2013 by Pawel Krol.
+Copyright (C) 2013, 2018 by Pawel Krol.
 
 This library is free open source software; you can redistribute it and/or modify it under the same terms as Perl itself, either Perl version 5.8.6 or, at your option, any later version of Perl 5 you may have available.
 
