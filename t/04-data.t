@@ -4,7 +4,7 @@ use warnings;
 use D64::Disk::Dir::Item;
 use D64::Disk::Layout::Sector;
 use Test::Deep;
-use Test::More tests => 14;
+use Test::More tests => 15;
 ########################################
 require './t/Util.pm';
 D64::Disk::Layout::Dir::Test::Util->import(qw(:all));
@@ -126,5 +126,11 @@ BEGIN {
     my @expected_data = get_more_dir_data();
     my @test_data = $dir->data();
     cmp_deeply(\@test_data, \@expected_data, 'replace disk directory layout object with sector data and check array of bytes');
+}
+########################################
+{
+    my $dir = $class->new();
+    my $expected_data = join  '', map { chr } (0x00, 0xff, map { 0x00 } (3 .. 18 * 256));
+    is($dir->data(), $expected_data, 'when the directory is done and the track value is $00, the sector link shall contain a value of $FF');
 }
 ########################################

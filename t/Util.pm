@@ -23,7 +23,7 @@ our $directory_first_sector = eval "\$D64::Disk::Layout::Dir::DIRECTORY_FIRST_SE
 our $directory_item_size = eval "\$D64::Disk::Dir::Item::ITEM_SIZE";
 
 sub get_empty_data {
-    my @data = map { chr 0x00 } (0x01 .. $sector_data_size * $total_sector_count);
+    my @data = map { chr } (0x00, 0xff, map { 0x00 } (0x01 .. $sector_data_size * $total_sector_count - 2));
     return wantarray ? @data : join '', @data;
 }
 
