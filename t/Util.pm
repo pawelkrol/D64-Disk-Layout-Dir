@@ -44,6 +44,12 @@ sub get_empty_sectors {
         $sector -= 0x11 if $sector > 0x12;
         $empty_sector;
     } (0x01 .. $total_sector_count);
+
+    # Fix sector link value for an empty disk directory:
+    my $first_sector_data = $sectors[0x00]->data();
+    substr $first_sector_data, 0x01, 0x01, chr 0xff;
+    $sectors[0x00]->data($first_sector_data);
+
     return wantarray ? @sectors : \@sectors;
 }
 

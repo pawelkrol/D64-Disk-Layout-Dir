@@ -81,7 +81,7 @@ use strict;
 use utf8;
 use warnings;
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 use D64::Disk::Dir::Item qw(:types);
 use D64::Disk::Layout::Sector;
@@ -390,13 +390,13 @@ sub data {
             CORE::push @data, chr $self->{sector_order}->[$i / $ITEMS_PER_SECTOR + 1];
         }
         elsif ($i % $ITEMS_PER_SECTOR == 0 && ($i + $ITEMS_PER_SECTOR) >= $num_items && $i < $num_items) {
-            CORE::push @data, chr 0x00, chr 0xff;
+            CORE::push @data, chr (0x00), chr (0xff);
         }
         elsif ($i == 0 && $num_items == 0) {
-            CORE::push @data, chr 0x00, chr 0xff;
+            CORE::push @data, chr (0x00), chr (0xff);
         }
         else {
-            CORE::push @data, chr 0x00, chr 0x00;
+            CORE::push @data, chr (0x00), chr (0x00);
         }
         CORE::push @data, @item_data;
     }
@@ -598,10 +598,13 @@ sub sectors {
                 CORE::push @data, chr $self->{sector_order}->[$i + 1];
             }
             elsif ($j == 0 && ($i + 1) * $ITEMS_PER_SECTOR >= $num_items && $i * $ITEMS_PER_SECTOR < $num_items) {
-                CORE::push @data, chr 0x00, chr 0xff;
+                CORE::push @data, chr (0x00), chr (0xff);
+            }
+            elsif ($i == 0 && $j == 0 && $num_items == 0) {
+                CORE::push @data, chr (0x00), chr (0xff);
             }
             else {
-                CORE::push @data, chr 0x00, chr 0x00;
+                CORE::push @data, chr (0x00), chr (0x00);
             }
             CORE::push @data, @item_data;
         }
@@ -1352,7 +1355,7 @@ Pawel Krol, E<lt>pawelkrol@cpan.orgE<gt>.
 
 =head1 VERSION
 
-Version 0.04 (2021-01-16)
+Version 0.05 (2021-01-16)
 
 =head1 COPYRIGHT AND LICENSE
 

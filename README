@@ -1,4 +1,4 @@
-D64::Disk::Layout::Dir Version 0.04
+D64::Disk::Layout::Dir Version 0.05
 ===================================
 
 D64::Disk::Layout::Dir provides a helper class for D64::Disk module, enabling

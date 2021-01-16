@@ -1,5 +1,10 @@
 Revision history for Perl extension D64::Disk::Layout::Dir.
 
+0.05  2021-01-16
+    - bug fixed: incorrect sector link value for an empty directory retrieved
+      via "sectors" method has been corrected in the same way as fixing "data"
+      method in a release version 0.04
+
 0.04  2021-01-16
     - bug fixed: incorrect sector link value for an empty directory has been
       corrected (when the directory is done and the track value is $00, the
