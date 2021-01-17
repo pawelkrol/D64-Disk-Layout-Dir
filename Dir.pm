@@ -81,7 +81,7 @@ use strict;
 use utf8;
 use warnings;
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 use D64::Disk::Dir::Item qw(:types);
 use D64::Disk::Layout::Sector;
@@ -395,6 +395,9 @@ sub data {
         elsif ($i == 0 && $num_items == 0) {
             CORE::push @data, chr (0x00), chr (0xff);
         }
+        elsif ($i % $ITEMS_PER_SECTOR == 0) {
+            CORE::push @data, chr (0x00), chr (0xff);
+        }
         else {
             CORE::push @data, chr (0x00), chr (0x00);
         }
@@ -603,7 +606,10 @@ sub sectors {
             elsif ($i == 0 && $j == 0 && $num_items == 0) {
                 CORE::push @data, chr (0x00), chr (0xff);
             }
-            else {
+            elsif ($j == 0) {
+                CORE::push @data, chr (0x00), chr (0xff);
+            }
+                else {
                 CORE::push @data, chr (0x00), chr (0x00);
             }
             CORE::push @data, @item_data;
@@ -1355,7 +1361,7 @@ Pawel Krol, E<lt>pawelkrol@cpan.orgE<gt>.
 
 =head1 VERSION
 
-Version 0.05 (2021-01-16)
+Version 0.06 (2021-01-18)
 
 =head1 COPYRIGHT AND LICENSE
 

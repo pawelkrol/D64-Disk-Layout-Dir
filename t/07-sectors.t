@@ -90,9 +90,8 @@ BEGIN {
 {
     my $dir = $class->new();
     my @sectors = $dir->sectors();
-    my $expected_data = join '', map { chr } (0x00, 0xff, map { 0x00 } (1 .. $D64::Disk::Layout::Sector::SECTOR_DATA_SIZE - 2));
+    my $expected_data = join '', map { chr } (0x00, 0xff, map { 0x00 } (0x03 .. $D64::Disk::Layout::Sector::SECTOR_DATA_SIZE));
     is($sectors[0]->data(), $expected_data, 'retrieve first directory sector data');
-    $expected_data = join '', map { chr } map { 0x00 } (1 .. $D64::Disk::Layout::Sector::SECTOR_DATA_SIZE);
     is($sectors[1]->data(), $expected_data, 'retrieve second directory sector data');
 }
 ########################################

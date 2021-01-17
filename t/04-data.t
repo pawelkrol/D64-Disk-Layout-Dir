@@ -130,7 +130,7 @@ BEGIN {
 ########################################
 {
     my $dir = $class->new();
-    my $expected_data = join  '', map { chr } (0x00, 0xff, map { 0x00 } (3 .. 18 * 256));
+    my $expected_data = join '', map { chr (0x00), chr (0xff), map { chr 0x00 } (0x03 .. 256) } (0x01 .. 18);
     is($dir->data(), $expected_data, 'when the directory is done and the track value is $00, the sector link shall contain a value of $FF');
 }
 ########################################

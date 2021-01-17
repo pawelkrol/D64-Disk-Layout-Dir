@@ -8,7 +8,7 @@ D64-Disk-Layout-Dir
 VERSION
 -------
 
-Version 0.05 (2021-01-16)
+Version 0.06 (2021-01-18)
 
 INSTALLATION
 ------------

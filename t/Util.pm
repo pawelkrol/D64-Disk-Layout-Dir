@@ -23,13 +23,13 @@ our $directory_first_sector = eval "\$D64::Disk::Layout::Dir::DIRECTORY_FIRST_SE
 our $directory_item_size = eval "\$D64::Disk::Dir::Item::ITEM_SIZE";
 
 sub get_empty_data {
-    my @data = map { chr } (0x00, 0xff, map { 0x00 } (0x01 .. $sector_data_size * $total_sector_count - 2));
+    my @data = map { chr (0x00), chr (0xff), map { chr 0x00 } (0x03 .. $sector_data_size) } (0x01 .. $total_sector_count);
     return wantarray ? @data : join '', @data;
 }
 
 sub get_empty_sector {
     my ($track, $sector) = @_;
-    my @data = map { chr 0x00 } (0x01 .. $sector_data_size);
+    my @data = (chr (0x00), chr (0xff), map { chr 0x00 } (0x03 .. $sector_data_size));
     $sector = D64::Disk::Layout::Dir->set_iok($sector);
     return D64::Disk::Layout::Sector->new(data => \@data, track => $track, sector => $sector);
 }
@@ -106,7 +106,7 @@ sub add_items_to_data {
 }
 
 sub get_dir_data {
-    my @data = map { chr 0x00 } (0x01 .. $sector_data_size * $total_sector_count);
+    my @data = map { chr (0x00), chr (0xff), map { chr 0x00 } (0x03 .. $sector_data_size) } (0x01 .. $total_sector_count);
     my @items = get_item_bytes(3);
     add_items_to_data(\@items, \@data);
     $data[0x01] = chr 0xff;
@@ -114,7 +114,7 @@ sub get_dir_data {
 }
 
 sub get_more_dir_data {
-    my @data = map { chr 0x00 } (0x01 .. $sector_data_size * $total_sector_count);
+    my @data = map { chr (0x00), chr (0xff), map { chr 0x00 } (0x03 .. $sector_data_size) } (0x01 .. $total_sector_count);
     my @items = get_item_bytes(12);
     add_items_to_data(\@items, \@data);
     $data[0x00] = chr 0x12;
